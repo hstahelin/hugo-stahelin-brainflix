@@ -3,10 +3,11 @@
 @use "../../styles/partials/global" as *;
 
 .video-player {
-  margin-bottom: var(--padding-before);
+  //   margin-bottom: var(--padding-before);
   background-color: $color-ui-secondary;
   display: flex;
   justify-content: center;
+  //   border: 1px solid red;
 }
 
 .video {
