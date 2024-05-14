@@ -1,9 +1,12 @@
 import { useState } from "react";
-import Header from "./components/Header/Header";
-import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
+
 import videos from "./data/videos.json";
 import videoDetails from "./data/video-details.json";
+
+import Header from "./components/Header/Header";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 import VideoDescription from "./components/VideoDescription/VideoDescription";
+import CommentsSection from "./components/CommentsSection/CommentsSection";
 
 function App() {
   const [allVideos, setAllVideos] = useState(videos);
@@ -14,6 +17,7 @@ function App() {
       <Header />
       <VideoPlayer video={mainVideo} />
       <VideoDescription video={mainVideo} />
+      <CommentsSection video={mainVideo} />
     </>
   );
 }

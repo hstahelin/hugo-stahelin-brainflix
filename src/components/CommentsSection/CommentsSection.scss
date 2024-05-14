@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.comments-section {
+  padding: 0 var(--padding-after);
+  &__count {
+    padding-bottom: var(--padding-after);
+  }
+}
