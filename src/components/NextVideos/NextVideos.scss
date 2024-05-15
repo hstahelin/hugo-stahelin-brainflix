@@ -1,0 +1,19 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.next-videos {
+  padding: var(--padding-before) var(--padding-after);
+
+  &__title {
+    color: $color-text-secondary;
+    padding-bottom: var(--padding-after);
+  }
+}
+
+@include desktop {
+  .next-videos {
+    border-left: 1px solid $color-divider;
+    flex: 1;
+  }
+}

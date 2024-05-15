@@ -6,7 +6,7 @@ import LikesIcon from "../../assets/icons/likes.svg";
 function VideoDescription({ video }) {
   const date = new Date(video.timestamp);
   return (
-    <section className="video-description">
+    <main className="video-description">
       <h1 className="video-description__title page-header">{video.title}</h1>
       <hr className="video-description__break" />
       <div className="video-info">
@@ -31,7 +31,7 @@ function VideoDescription({ video }) {
       <p className="video-description__description body-copy">
         {video.description}
       </p>
-    </section>
+    </main>
   );
 }
 

@@ -52,52 +52,46 @@
 
 //Font style
 .font-properties {
-  .page-header,
-  .section-header {
+  .page-header {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
   }
-  .subheader {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    font-weight: 600;
+  .section-header {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 700;
   }
-  .body-copy,
-  .footer-copy {
+  .subheader {
     font-size: 0.813rem;
     line-height: 1.125rem;
+    font-weight: 700;
   }
-  .footer-copy {
-    &--demi {
-      font-weight: 600;
-    }
+  .body-copy {
+    font-size: 0.813rem;
+    line-height: 1.125rem;
   }
   .labels-and-buttons {
     font-size: 0.625rem;
     line-height: 1.25rem;
     font-weight: 700;
   }
+
   @include tablet {
     .page-header {
-      font-size: 3.75rem;
-      line-height: 4.25rem;
-    }
-    .section-header {
-      font-size: 2.25rem;
+      font-size: 2.063rem;
       line-height: 2.75rem;
     }
+    .section-header {
+      font-size: 0.75rem;
+    }
     .subheader {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
     }
     .body-copy {
       font-size: 0.875rem;
       line-height: 1.375rem;
-    }
-    .footer-copy {
-      font-size: 0.875rem;
-      line-height: 1.25rem;
     }
     .labels-and-buttons {
       font-size: 0.75rem;

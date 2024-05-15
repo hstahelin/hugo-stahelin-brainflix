@@ -1,0 +1,21 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.item {
+  display: flex;
+  padding-bottom: var(--padding-after);
+  gap: 1rem;
+
+  &__image {
+    max-width: 45%;
+    border-radius: 4px;
+    background-color: $color-text-tertiary;
+    object-fit: cover;
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
