@@ -1,25 +1,78 @@
-# Getting Started with Create React App
+# BrainFlix Prototype Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+This project is part of the BrainStation Software Engineering Bootcamp and aims to teach HTML, CSS, Sass, JavaScript, and React through the development of a video streaming platform prototype called BrainFlix. The project is divided into three deliverables, each focusing on specific tasks to be completed within a set timeframe.
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+### Deliverable 1
+
+In the first deliverable, the task is to build a prototype for the BrainFlix video streaming platform. Provided with mockups and design specifications from BrainFlix's Creative Director, the task is to create static function components to construct a functioning and responsive app prototype.
+
+### Deliverable 2
+
+For the second deliverable, updated mockups for an additional screen and new features are provided. The goal is to implement these features using JavaScript to make the site interactive. Additionally, add a second page to the site according to the provided mockups and design specs.
+
+### Deliverable 3
+
+In the final sprint, the decision has been made to build an actual API for the prototype. The task is to develop this API service based on the mock API used previously. This involves creating a new repository for the server-side code and updating the client application to utilize your API service for managing video data.
+
+## Project Structure
+
+The project follows a structured approach with three sprints, each focusing on specific tasks:
+
+1. **Sprint 1**: Develop static function components for the BrainFlix prototype based on provided mockups and design specifications.
+2. **Sprint 2**: Implement new features and interactivity using JavaScript. Add a second page to the site according to updated mockups and design specs.
+3. **Sprint 3**: Build an actual API service to manage video data for the prototype. Develop server-side code and update the client application to use the new API service.
+
+## Getting Started
+
+To begin working on this project, ensure you have the following prerequisites installed:
+
+- Node.js
+- npm
+
+Clone this repository to the local machine:
+
+```bash
+git clone https://github.com/hstahelin/hugo-stahelin-brainflix.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd hugo-stahelin-brainflix
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## Usage
+
+### Development Server
+
+To run the development server:
+
+```bash
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Production Build
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To create a production build:
 
-### `npm run build`
+```bash
+npm run build
+```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,44 +80,14 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Acknowledgments
 
-### `npm run eject`
+Special thanks to BrainStation for providing the learning opportunity and resources for this project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is licensed under the [MIT License](LICENSE).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Live site
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://hugo-stahelin-brainflix.onrender.com/
