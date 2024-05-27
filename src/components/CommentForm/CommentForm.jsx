@@ -19,7 +19,6 @@ function CommentForm() {
             <textarea
               name="comment"
               id="comments-form-comment"
-              //   rows="5"
               className="comments__input"
               placeholder="Add a new comment"
             ></textarea>

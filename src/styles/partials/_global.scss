@@ -31,14 +31,14 @@
   --padding-after: 1rem;
   --padding-half: 0.5rem;
   @include tablet {
-    --padding-before: 3rem;
-    --padding-after: 2.25rem;
-    --padding-half: 1.125rem;
+    --padding-before: 2.25rem;
+    --padding-after: 1.5rem;
+    --padding-half: 0.75rem;
   }
   @include desktop {
-    --padding-before: 3rem;
-    --padding-after: 2.25rem;
-    --padding-half: 1.125rem;
+    --padding-before: 2.25rem;
+    --padding-after: 1.5rem;
+    --padding-half: 0.75rem;
   }
 }
 
