@@ -1,8 +1,7 @@
 import "./Comment.scss";
+import { formatDates } from "../../utils/utils";
 
 function Comment({ comment }) {
-  const date = new Date(comment.timestamp);
-
   return (
     <>
       <div className="comment">
@@ -13,7 +12,7 @@ function Comment({ comment }) {
           <div className="comment__header">
             <h3 className="comment__author subheader">{comment.name}</h3>
             <h3 className="comment__date body-copy">
-              {date.toLocaleDateString("en-US")}
+              {formatDates(comment.timestamp)}
             </h3>
           </div>
           <p className="comment__text body-copy">{comment.comment}</p>
