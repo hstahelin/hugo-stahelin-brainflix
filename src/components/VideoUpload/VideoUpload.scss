@@ -1,0 +1,144 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.video-divider {
+  border: 0.063rem solid $color-divider;
+}
+.video-upload {
+  padding: var(--padding-before) var(--padding-after);
+
+  &__title {
+    padding-bottom: var(--padding-after);
+  }
+
+  &__divider {
+    border: 0.063rem solid $color-divider;
+    margin-bottom: var(--padding-after);
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.thumbnail {
+  &__title {
+    color: $color-text-secondary;
+    padding-bottom: var(--padding-half);
+  }
+  &__image {
+    width: 100%;
+    padding-bottom: var(--padding-before);
+  }
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  &__label {
+    color: $color-text-secondary;
+    padding-bottom: var(--padding-half);
+  }
+  &__input {
+    margin-bottom: var(--padding-before);
+
+    box-sizing: border-box;
+    border: 0.063rem solid $color-divider;
+    border-radius: 0.25rem;
+
+    padding: 0.75rem;
+    background-color: $color-ui-tertiary;
+    &:focus-visible {
+      outline: 0.063rem solid $color-ui-accent-primary;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  &__button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+    padding-left: 2.625rem;
+    padding-right: 2rem;
+
+    &--publish {
+      color: $color-text-primary;
+      border: 0.063rem solid $color-text-tertiary;
+      background-color: $color-ui-accent-primary;
+
+      background-image: url("../../assets/icons/publish.svg");
+      background-repeat: no-repeat;
+      background-position: 0.5rem 0.375rem;
+
+      margin-bottom: var(--padding-half);
+
+      &:hover {
+        background-color: $color-ui-accent-secondary;
+      }
+    }
+
+    &--cancel {
+      border: none;
+      color: $color-ui-accent-primary;
+      background-color: $color-text-primary;
+    }
+  }
+}
+
+@include tablet {
+  .video-upload {
+    &__divider {
+      display: block;
+    }
+  }
+
+  .thumbnail {
+    &__image {
+      width: 50%;
+    }
+  }
+
+  .upload-form {
+    &__buttons {
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+    &__button {
+      width: 150px;
+      &--publish {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .video-upload {
+    padding-left: 10%;
+    padding-right: 10%;
+
+    &__content {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--padding-after);
+    }
+  }
+
+  .thumbnail {
+    flex: 1;
+    &__image {
+      width: 100%;
+    }
+  }
+  .upload-form {
+    flex: 2;
+  }
+}

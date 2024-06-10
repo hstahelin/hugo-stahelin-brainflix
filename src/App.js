@@ -10,6 +10,7 @@ import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 import VideoDescription from "./components/VideoDescription/VideoDescription";
 import CommentsSection from "./components/CommentsSection/CommentsSection";
 import NextVideos from "./components/NextVideos/NextVideos";
+import VideoUpload from "./components/VideoUpload/VideoUpload";
 
 function App() {
   const [allVideos, setAllVideos] = useState(videos);
@@ -28,7 +29,8 @@ function App() {
   return (
     <>
       <Header />
-      <VideoPlayer video={mainVideo} />
+      <VideoUpload />
+      {/* <VideoPlayer video={mainVideo} />
       <div className="content">
         <div className="content__video">
           <VideoDescription video={mainVideo} />
@@ -39,7 +41,7 @@ function App() {
           allVideos={allVideos}
           handleSelectVideo={handleSelectVideo}
         />
-      </div>
+      </div> */}
     </>
   );
 }
