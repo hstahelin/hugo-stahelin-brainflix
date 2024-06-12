@@ -2,6 +2,9 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
+.link {
+  text-decoration: none;
+}
 .item {
   display: flex;
   padding-bottom: var(--padding-after);

@@ -1,13 +1,16 @@
 import "./Header.scss";
 import Logo from "../../assets/logo/BrainFlix-logo.svg";
 import UserImage from "../../assets/images/Mohan-muruge.jpg";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header className="site-header">
-      <div className="site-logo">
-        <img src={Logo} className="site-logo__image" alt="Site logo" />
-      </div>
+      <Link to="/">
+        <div className="site-logo">
+          <img src={Logo} className="site-logo__image" alt="Site logo" />
+        </div>
+      </Link>
       <div className="site-options">
         <div className="site-options__search-section">
           <input
@@ -23,9 +26,9 @@ function Header() {
             className="site-options__avatar-img site-options__avatar-img--mobile"
           />
         </div>
-        <button className="site-options__upload labels-and-buttons">
+        <Link to="upload" className="site-options__upload labels-and-buttons">
           UPLOAD
-        </button>
+        </Link>
         <img
           src={UserImage}
           alt="User avatar"

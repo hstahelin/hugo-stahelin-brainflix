@@ -1,7 +1,7 @@
 import VideoCard from "../VideoCard/VideoCard";
 import "./NextVideos.scss";
 
-function NextVideos({ mainVideoId, allVideos, handleSelectVideo }) {
+function NextVideos({ mainVideoId, allVideos }) {
   return (
     <section className="next-videos">
       <h3 className="next-videos__title subheader">NEXT VIDEOS</h3>
@@ -9,13 +9,7 @@ function NextVideos({ mainVideoId, allVideos, handleSelectVideo }) {
         {allVideos
           .filter((video) => video.id !== mainVideoId)
           .map((video) => {
-            return (
-              <VideoCard
-                key={video.id}
-                video={video}
-                handleSelectVideo={handleSelectVideo}
-              />
-            );
+            return <VideoCard key={video.id} video={video} />;
           })}
       </ul>
     </section>
