@@ -1,7 +1,9 @@
 import VideoCard from "../VideoCard/VideoCard";
 import "./NextVideos.scss";
 
-function NextVideos({ mainVideoId, allVideos }) {
+import allVideos from "../../data/videos.json";
+
+function NextVideos({ mainVideoId }) {
   return (
     <section className="next-videos">
       <h3 className="next-videos__title subheader">NEXT VIDEOS</h3>
