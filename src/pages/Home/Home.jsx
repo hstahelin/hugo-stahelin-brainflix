@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import videos from "../../data/videos.json";
-import videoDetails from "../../data/video-details.json";
+// import videos from "../../data/videos.json";
+// import videoDetails from "../../data/video-details.json";
 
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
@@ -11,7 +11,6 @@ import NextVideos from "../../components/NextVideos/NextVideos";
 import axios from "axios";
 
 function Home() {
-  //   const [allVideos, setAllVideos] = useState(videos);
   const [allVideos, setAllVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState({});
   const [defaultVideo, setDefaultVideo] = useState({});
@@ -80,7 +79,9 @@ function Home() {
           <VideoDescription video={currentVideo} />
           <CommentsSection video={currentVideo} />
         </div>
-        <NextVideos mainVideoId={currentVideo.id} />
+        <NextVideos
+          nextVideos={allVideos.filter((video) => video.id !== currentVideo.id)}
+        />
       </div>
     </>
   );
