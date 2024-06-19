@@ -27,42 +27,60 @@
   &__text {
     padding-top: var(--padding-after);
     display: block;
+    // border: 1px soli d red;
+    width: 100%;
   }
   &__divider {
     border: 0.063rem solid $color-divider;
     margin: 1rem 0;
   }
 
-  &__buttons {
+  &__body {
+    // border: 1px solid orange;
     display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-left: auto;
-    color: $color-text-primary;
-    padding-top: var(--padding-after);
+    align-items: flex-end;
   }
 
-  &__button {
-    width: 9.375rem;
-    height: 2.5rem;
-    background-color: $color-ui-primary;
-    color: $color-text-primary;
-    border-radius: 0.25rem;
-    border: none;
+  &__delete {
+    // border: 1px solid green;
+    padding-left: 0.25rem;
     &:hover {
-      background-color: $color-ui-secondary;
+      // border: 1px solid green;
+      cursor: pointer;
     }
   }
-  &__button-icon {
-    filter: invert(100%);
-  }
 
-  &__like-counter {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-left: 0.25rem;
-  }
+  // &__buttons {
+  //   display: flex;
+  //   gap: 1rem;
+  //   justify-content: flex-end;
+  //   margin-left: auto;
+  //   color: $color-text-primary;
+  //   padding-top: var(--padding-after);
+  // }
+
+  // &__button {
+  //   width: 9.375rem;
+  //   height: 2.5rem;
+  //   background-color: $color-ui-primary;
+  //   color: $color-text-primary;
+  //   border-radius: 0.25rem;
+  //   border: none;
+  //   &:hover {
+  //     background-color: $color-ui-secondary;
+  //   }
+  // }
+
+  // &__button-icon {
+  //   filter: invert(100%);
+  // }
+
+  // &__like-counter {
+  //   display: inline-block;
+  //   font-size: 12px;
+  //   font-weight: 700;
+  //   margin-left: 0.25rem;
+  // }
 
   &__divider {
     border-top: 0.063rem solid $color-divider;

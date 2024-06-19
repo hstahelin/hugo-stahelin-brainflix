@@ -1,4 +1,5 @@
 import "./Comment.scss";
+import DeleteIcon from "../../assets/icons/delete.svg";
 import { formatDates } from "../../utils/utils";
 
 function Comment({ comment }) {
@@ -15,7 +16,14 @@ function Comment({ comment }) {
               {formatDates(comment.timestamp)}
             </h3>
           </div>
-          <p className="comment__text body-copy">{comment.comment}</p>
+          <div className="comment__body">
+            <p className="comment__text body-copy">{comment.comment}</p>
+            <img
+              src={DeleteIcon}
+              alt="Trash can - Delete comment"
+              className="comment__delete"
+            />
+          </div>
         </div>
       </div>
       <hr className="comment__divider" />
