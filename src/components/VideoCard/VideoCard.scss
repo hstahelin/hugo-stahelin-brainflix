@@ -22,3 +22,19 @@
     justify-content: space-between;
   }
 }
+
+@include tablet {
+  .item {
+    &__image {
+      max-width: 20%;
+    }
+  }
+}
+
+@include desktop {
+  .item {
+    &__image {
+      max-width: 45%;
+    }
+  }
+}
