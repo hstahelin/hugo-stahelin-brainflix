@@ -85,14 +85,26 @@ function Home() {
     setAllVideos(videoData);
   }
 
+  async function deleteComment(commentId) {
+    const api_key = "f9a10329-0cab-4ed8-b0be-973a0d16d430";
+    const response = await axios.delete(
+      `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${currentVideo.id}/comments/${commentId}?api_key=${api_key}`
+    );
+    const videoData = await fetchVideoData();
+    setAllVideos(videoData);
+  }
+
   return (
     <>
-      {/* <h1>TEST 02 - {allVideos.length}</h1> */}
       <VideoPlayer video={currentVideo} />
       <div className="content">
         <div className="content__video">
           <VideoDescription video={currentVideo} />
-          <CommentsSection video={currentVideo} submitComment={submitComment} />
+          <CommentsSection
+            video={currentVideo}
+            submitComment={submitComment}
+            deleteComment={deleteComment}
+          />
         </div>
         <NextVideos
           nextVideos={allVideos.filter((video) => video.id !== currentVideo.id)}

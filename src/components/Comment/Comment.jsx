@@ -2,7 +2,7 @@ import "./Comment.scss";
 import DeleteIcon from "../../assets/icons/delete.svg";
 import { formatDates } from "../../utils/utils";
 
-function Comment({ comment }) {
+function Comment({ comment, deleteComment }) {
   return (
     <>
       <div className="comment">
@@ -22,6 +22,7 @@ function Comment({ comment }) {
               src={DeleteIcon}
               alt="Trash can - Delete comment"
               className="comment__delete"
+              onClick={() => deleteComment(comment.id)}
             />
           </div>
         </div>

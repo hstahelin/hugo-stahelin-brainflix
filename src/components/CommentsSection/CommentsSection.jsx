@@ -2,7 +2,7 @@ import Comment from "../Comment/Comment";
 import CommentForm from "../CommentForm/CommentForm";
 import "./CommentsSection.scss";
 
-function CommentsSection({ video, submitComment }) {
+function CommentsSection({ video, submitComment, deleteComment }) {
   if (video.comments) {
     return (
       <section className="comments-section">
@@ -12,7 +12,11 @@ function CommentsSection({ video, submitComment }) {
         <CommentForm submitComment={submitComment} />
         <div className="comments-list">
           {video.comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
+            <Comment
+              key={comment.id}
+              comment={comment}
+              deleteComment={deleteComment}
+            />
           ))}
         </div>
       </section>
