@@ -15,7 +15,6 @@ function Home() {
 
   const [allVideos, setAllVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState({});
-  const [defaultVideo, setDefaultVideo] = useState({});
 
   const { videoId } = useParams();
 
@@ -48,10 +47,8 @@ function Home() {
         const selectedVideo = await fetchVideoDetails(
           videoId || videoData[0].id
         );
-        const defaultVid = await fetchVideoDetails(videoData[0].id);
-        if (selectedVideo && defaultVid) {
+        if (selectedVideo) {
           setCurrentVideo(selectedVideo);
-          setDefaultVideo(defaultVid);
         }
       }
     }
@@ -59,22 +56,21 @@ function Home() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [videoId]);
 
   useEffect(() => {
     let active = true;
-    async function getMainVideo(id) {
-      const video = await fetchVideoDetails(id);
+    async function updateCurrentVideo() {
+      const video = await fetchVideoDetails(videoId);
       if (active && video) {
         setCurrentVideo(video);
       }
     }
     if (videoId) {
-      getMainVideo(videoId);
-    } else {
-      setCurrentVideo(defaultVideo);
+      updateCurrentVideo();
+    } else if (allVideos.length > 0) {
+      setCurrentVideo(allVideos[0]);
     }
-
     return () => {
       active = false;
     };
@@ -86,9 +82,9 @@ function Home() {
         `${URL}/videos/${currentVideo.id}/comments?api_key=${API_KEY}`,
         newComment
       );
-      const videoData = await fetchVideoData();
-      if (videoData) {
-        setAllVideos(videoData);
+      const updatedVideo = await fetchVideoDetails(currentVideo.id);
+      if (updatedVideo) {
+        setCurrentVideo(updatedVideo);
       }
     } catch (error) {
       console.error("Error submitting comment: ", error);
@@ -100,9 +96,9 @@ function Home() {
       await axios.delete(
         `${URL}/videos/${currentVideo.id}/comments/${commentId}?api_key=${API_KEY}`
       );
-      const videoData = await fetchVideoData();
-      if (videoData) {
-        setAllVideos(videoData);
+      const updatedVideo = await fetchVideoDetails(currentVideo.id);
+      if (updatedVideo) {
+        setCurrentVideo(updatedVideo);
       }
     } catch (error) {
       console.error("Error deleting comment: ", error);
