@@ -18,11 +18,19 @@ function VideoDescription({ video }) {
         </div>
         <div className="video-info__counters">
           <div className="video-info__views">
-            <img src={ViewsIcon} alt="" className="video-info__views-icon" />
+            <img
+              src={ViewsIcon}
+              alt="Number of views"
+              className="video-info__views-icon"
+            />
             <p className="video-info__views-counter body-copy">{video.views}</p>
           </div>
           <div className="video-info__likes">
-            <img src={LikesIcon} alt="" className="video-info__likes-icon" />
+            <img
+              src={LikesIcon}
+              alt="Number of likes"
+              className="video-info__likes-icon"
+            />
             <p className="video-info__likes-counter body-copy">{video.likes}</p>
           </div>
         </div>

@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-// import videos from "../../data/videos.json";
-// import videoDetails from "../../data/video-details.json";
+import axios from "axios";
 
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
 import CommentsSection from "../../components/CommentsSection/CommentsSection";
 import NextVideos from "../../components/NextVideos/NextVideos";
-import axios from "axios";
 
 function Home() {
+  const API_KEY = process.env.API_KEY || "f9a10329-0cab-4ed8-b0be-973a0d16d430";
+  const URL =
+    process.env.API_URL ||
+    "https://unit-3-project-api-0a5620414506.herokuapp.com";
+
   const [allVideos, setAllVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState({});
   const [defaultVideo, setDefaultVideo] = useState({});
@@ -18,38 +20,39 @@ function Home() {
   const { videoId } = useParams();
 
   async function fetchVideoDetails(idVideo) {
-    const api_key = "f9a10329-0cab-4ed8-b0be-973a0d16d430";
-    const response = await axios.get(
-      `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${idVideo}?api_key=${api_key}`
-    );
-    // console.log("getVideoDetails: ", response.data);
-
-    return response.data;
+    try {
+      const response = await axios.get(
+        `${URL}/videos/${idVideo}?api_key=${API_KEY}`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching video details: ", error);
+    }
   }
 
   async function fetchVideoData() {
-    const api_key = "f9a10329-0cab-4ed8-b0be-973a0d16d430";
-    const response = await axios.get(
-      `https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${api_key}`
-    );
-    return response.data;
+    try {
+      const response = await axios.get(`${URL}/videos?api_key=${API_KEY}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching video data: ", error);
+    }
   }
 
   useEffect(() => {
     let active = true;
     async function fetchAllVideos() {
       const videoData = await fetchVideoData();
-      if (active) {
-        // console.log("DATA: ", response.data);
+      if (active && videoData) {
         setAllVideos(videoData);
         const selectedVideo = await fetchVideoDetails(
           videoId || videoData[0].id
         );
         const defaultVid = await fetchVideoDetails(videoData[0].id);
-
-        // console.log("selectedVideo: ", selectedVideo);
-        setCurrentVideo(selectedVideo);
-        setDefaultVideo(defaultVid);
+        if (selectedVideo && defaultVid) {
+          setCurrentVideo(selectedVideo);
+          setDefaultVideo(defaultVid);
+        }
       }
     }
     fetchAllVideos();
@@ -61,8 +64,10 @@ function Home() {
   useEffect(() => {
     let active = true;
     async function getMainVideo(id) {
-      //   console.log("VIDEO ID (videoId): ", id);
-      setCurrentVideo(await fetchVideoDetails(id));
+      const video = await fetchVideoDetails(id);
+      if (active && video) {
+        setCurrentVideo(video);
+      }
     }
     if (videoId) {
       getMainVideo(videoId);
@@ -76,22 +81,32 @@ function Home() {
   }, [videoId, allVideos]);
 
   async function submitComment(newComment) {
-    const api_key = "f9a10329-0cab-4ed8-b0be-973a0d16d430";
-    const response = await axios.post(
-      `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${currentVideo.id}/comments?api_key=${api_key}`,
-      newComment
-    );
-    const videoData = await fetchVideoData();
-    setAllVideos(videoData);
+    try {
+      await axios.post(
+        `${URL}/videos/${currentVideo.id}/comments?api_key=${API_KEY}`,
+        newComment
+      );
+      const videoData = await fetchVideoData();
+      if (videoData) {
+        setAllVideos(videoData);
+      }
+    } catch (error) {
+      console.error("Error submitting comment: ", error);
+    }
   }
 
   async function deleteComment(commentId) {
-    const api_key = "f9a10329-0cab-4ed8-b0be-973a0d16d430";
-    const response = await axios.delete(
-      `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${currentVideo.id}/comments/${commentId}?api_key=${api_key}`
-    );
-    const videoData = await fetchVideoData();
-    setAllVideos(videoData);
+    try {
+      await axios.delete(
+        `${URL}/videos/${currentVideo.id}/comments/${commentId}?api_key=${API_KEY}`
+      );
+      const videoData = await fetchVideoData();
+      if (videoData) {
+        setAllVideos(videoData);
+      }
+    } catch (error) {
+      console.error("Error deleting comment: ", error);
+    }
   }
 
   return (

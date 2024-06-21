@@ -13,16 +13,17 @@
   aspect-ratio: 16/9;
 }
 
+// Media Queries
 // Tablet
 @include tablet {
   .video {
-    max-height: 400px;
+    max-height: 25rem;
   }
 }
 
 // Desktop
 @include desktop {
   .video {
-    max-height: 500px;
+    max-height: 31.25rem;
   }
 }

@@ -28,7 +28,11 @@ function CommentForm({ submitComment }) {
     <>
       <div className="comments">
         <div className="comments__avatar">
-          <img className="comments__avatar-img" src={UserImage} alt="" />
+          <img
+            className="comments__avatar-img"
+            src={UserImage}
+            alt="User avatar"
+          />
         </div>
         <form
           id="comments-form"

@@ -11,19 +11,15 @@
   }
 }
 
-@include desktop {
-  .content {
-    flex-direction: row;
-    &__video {
-      flex: 2;
-    }
-  }
-}
-
+// Media Queries
 // Desktop
 @include desktop {
   .content {
     padding-left: 10%;
     padding-right: 10%;
+    flex-direction: row;
+    &__video {
+      flex: 2;
+    }
   }
 }

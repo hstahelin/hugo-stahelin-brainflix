@@ -40,7 +40,11 @@ function VideoUpload() {
             <h2 className="thumbnail__title labels-and-buttons">
               VIDEO THUMBNAIL
             </h2>
-            <img src={Image} alt="" className="thumbnail__image" />
+            <img
+              src={Image}
+              alt="Video upload thumbnail"
+              className="thumbnail__image"
+            />
           </div>
           <form className="upload-form">
             <label

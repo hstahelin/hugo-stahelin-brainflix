@@ -10,10 +10,11 @@
     padding-bottom: var(--padding-after);
   }
 }
-
+//Media Queries
+//Desktop
 @include desktop {
   .next-videos {
-    border-left: 1px solid $color-divider;
+    border-left: 0.063rem solid $color-divider;
     flex: 1;
   }
 }

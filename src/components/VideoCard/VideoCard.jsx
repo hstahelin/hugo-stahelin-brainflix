@@ -14,7 +14,11 @@ function VideoCard({ video }) {
           })
         }
       >
-        <img className="item__image" src={video.image} alt="" />
+        <img
+          className="item__image"
+          src={video.image}
+          alt={`Video preview: ${video.title}`}
+        />
         <div className="item__description">
           <h4 className="item__title subheader">{video.title}</h4>
           <h4 className="item__channel body-copy">{video.channel}</h4>
