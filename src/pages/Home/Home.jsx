@@ -103,12 +103,25 @@ function Home() {
     }
   }
 
+  async function handleLike() {
+    try {
+      await axios.put(
+        `${URL}/videos/${currentVideo.id}/likes?api_key=${API_KEY}`
+      );
+      const updatedVideo = await fetchVideoDetails(currentVideo.id);
+      if (updatedVideo) {
+        setCurrentVideo(updatedVideo);
+      }
+    } catch (error) {
+      console.error("Error liking video: ", error);
+    }
+  }
   return (
     <>
       <VideoPlayer video={currentVideo} />
       <div className="content">
         <div className="content__video">
-          <VideoDescription video={currentVideo} />
+          <VideoDescription video={currentVideo} handleLike={handleLike} />
           <CommentsSection
             video={currentVideo}
             submitComment={submitComment}

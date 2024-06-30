@@ -3,7 +3,7 @@ import "./VideoDescription.scss";
 import ViewsIcon from "../../assets/icons/views.svg";
 import LikesIcon from "../../assets/icons/likes.svg";
 
-function VideoDescription({ video }) {
+function VideoDescription({ video, handleLike }) {
   const date = new Date(video.timestamp);
   return (
     <main className="video-description">
@@ -30,6 +30,7 @@ function VideoDescription({ video }) {
               src={LikesIcon}
               alt="Number of likes"
               className="video-info__likes-icon"
+              onClick={handleLike}
             />
             <p className="video-info__likes-counter body-copy">{video.likes}</p>
           </div>
