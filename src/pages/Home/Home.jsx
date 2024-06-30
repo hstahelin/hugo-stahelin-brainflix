@@ -9,9 +9,7 @@ import NextVideos from "../../components/NextVideos/NextVideos";
 
 function Home() {
   const API_KEY = process.env.API_KEY || "f9a10329-0cab-4ed8-b0be-973a0d16d430";
-  const URL =
-    process.env.API_URL ||
-    "https://unit-3-project-api-0a5620414506.herokuapp.com";
+  const URL = process.env.API_URL || "http://localhost:8080";
 
   const [allVideos, setAllVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState({});

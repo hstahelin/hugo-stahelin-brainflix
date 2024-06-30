@@ -2,8 +2,11 @@ import "./VideoUpload.scss";
 import Image from "../../assets/images/Upload-video-preview.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function VideoUpload() {
+  const URL = "http://localhost:8080";
+
   const [formData, setFormData] = useState({ title: "", description: "" });
   const navigate = useNavigate();
 
@@ -15,14 +18,27 @@ function VideoUpload() {
     });
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (formData.title && formData.description) {
-      alert(
-        `Video Uploaded.\nTitle: ${formData.title}\nDescription: ${formData.description}`
-      );
-      navigate("/");
+      const newVideo = {
+        title: formData.title,
+        description: formData.description,
+        channel: "Mohan Muruge",
+        image: "http://localhost:8080/images/sample.jpg",
+      };
+      const createdVideo = await postVideoData(newVideo);
+      navigate(`/video/${createdVideo.id}`);
     } else {
       alert("Please fill out Title and Description.");
+    }
+  }
+
+  async function postVideoData(video) {
+    try {
+      const response = await axios.post(`${URL}/videos`, video);
+      return response.data;
+    } catch (error) {
+      console.error("Error posting video data: ", error);
     }
   }
 
