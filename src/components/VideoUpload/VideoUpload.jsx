@@ -7,8 +7,15 @@ import axios from "axios";
 function VideoUpload() {
   const URL = "http://localhost:8080";
 
-  const [formData, setFormData] = useState({ title: "", description: "" });
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    file: {},
+  });
+
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [isImageValid, setIsImageValid] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -19,21 +26,26 @@ function VideoUpload() {
   }
 
   async function handleSubmit() {
-    if (formData.title && formData.description) {
-      const newVideo = {
-        title: formData.title,
-        description: formData.description,
-        channel: "Mohan Muruge",
-        image: "http://localhost:8080/images/sample.jpg",
-      };
+    if (formData.title && formData.description && isImageValid) {
+      const newVideo = new FormData();
+      newVideo.append("title", formData.title);
+      newVideo.append("description", formData.description);
+      newVideo.append("channel", "Mohan Muruge");
+      newVideo.append("image", `${URL}/images/sample.jpg`);
+      newVideo.append("file", formData.file);
+
+      console.log("newVideo: ", newVideo);
       const createdVideo = await postVideoData(newVideo);
       navigate(`/video/${createdVideo.id}`);
     } else {
-      alert("Please fill out Title and Description.");
+      setError(
+        "Please fill out Title and Description and select a valid image file."
+      );
     }
   }
 
   async function postVideoData(video) {
+    console.log("inside POSTVIDEODATA: ", video);
     try {
       const response = await axios.post(`${URL}/videos`, video);
       return response.data;
@@ -43,7 +55,26 @@ function VideoUpload() {
   }
 
   function handleCancel() {
-    setFormData({ title: "", description: "" });
+    setFormData({ title: "", description: "", file: {} });
+  }
+
+  function handleFileChange(event) {
+    const selectedFile = event.target.files[0];
+    const validImageTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (selectedFile) {
+      const fileType = selectedFile.type;
+      if (validImageTypes.includes(fileType)) {
+        setFormData({
+          ...formData,
+          file: event.target.files[0],
+        });
+        setError("");
+        setIsImageValid(true);
+      } else {
+        setError("Please select a valid image file (JPEG, PNG, GIF).");
+        setIsImageValid(false);
+      }
+    }
   }
   return (
     <>
@@ -52,17 +83,23 @@ function VideoUpload() {
         <h1 className="video-upload__title page-header">Upload Video</h1>
         <hr className="video-upload__divider" />
         <div className="video-upload__content">
-          <div className="thumbnail">
-            <h2 className="thumbnail__title labels-and-buttons">
-              VIDEO THUMBNAIL
-            </h2>
-            <img
-              src={Image}
-              alt="Video upload thumbnail"
-              className="thumbnail__image"
-            />
-          </div>
           <form className="upload-form">
+            <label
+              htmlFor="thumbnail"
+              className="thumbnail__title labels-and-buttons"
+            >
+              VIDEO THUMBNAIL
+            </label>
+
+            <input
+              type="file"
+              name="thumbnail"
+              id="thumbnail"
+              className="thumbnail__upload"
+              onChange={handleFileChange}
+            />
+            {error && <p className="thumbnail__error">{error}</p>}
+
             <label
               htmlFor="title"
               className="upload-form__label labels-and-buttons"
