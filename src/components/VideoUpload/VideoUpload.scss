@@ -22,6 +22,15 @@
     display: flex;
     flex-direction: column;
   }
+
+  &__thumbnail {
+    display: flex;
+    flex-direction: column;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .thumbnail {
@@ -32,6 +41,23 @@
   &__image {
     width: 100%;
     padding-bottom: var(--padding-before);
+  }
+  &__upload {
+    padding-bottom: var(--padding-half);
+    &::file-selector-button {
+      padding: 0.5rem 2rem;
+      border-radius: 0.25rem;
+      font-weight: 700;
+
+      color: $color-text-primary;
+      border: 0.063rem solid $color-text-tertiary;
+      background-color: $color-ui-accent-primary;
+      margin-right: 1rem;
+    }
+  }
+  &__error {
+    color: $color-ui-error;
+    padding-bottom: var(--padding-half);
   }
 }
 
@@ -135,13 +161,15 @@
     }
   }
 
-  .thumbnail {
-    flex: 1;
-    &__image {
-      width: 100%;
+  .video-upload {
+    &__thumbnail {
+      flex: 1;
+    }
+    &__info {
+      flex: 2;
     }
   }
-  .upload-form {
-    flex: 2;
+  .thumbnail__image {
+    width: 100%;
   }
 }
