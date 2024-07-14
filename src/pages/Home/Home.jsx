@@ -9,7 +9,8 @@ import NextVideos from "../../components/NextVideos/NextVideos";
 
 function Home() {
   const API_KEY = process.env.API_KEY || "f9a10329-0cab-4ed8-b0be-973a0d16d430";
-  const URL = process.env.API_URL || "http://localhost:8080";
+  const URL =
+    process.env.API_URL || "https://hugo-stahelin-brainflix-api.onrender.com";
 
   const [allVideos, setAllVideos] = useState([]);
   const [currentVideo, setCurrentVideo] = useState({});

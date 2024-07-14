@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function VideoUpload() {
-  const URL = "http://localhost:8080";
+  const URL = "https://hugo-stahelin-brainflix-api.onrender.com";
 
   const [formData, setFormData] = useState({
     title: "",
