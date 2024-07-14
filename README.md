@@ -66,6 +66,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 
+## Live site
+
+https://hugo-stahelin-brainflix.onrender.com/
+API free instance might spin down with inactivity, which can delay requests by 50 seconds or more.
+
 ## Acknowledgments
 
 Special thanks to BrainStation for providing the learning opportunity and resources for this project.
